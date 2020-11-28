@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "grenache-nodejs-link": "^0.7.12",
-    "uuidv4": "^6.2.5"
+    "underscore": "^1.12.0",
+    "uuid": "^8.3.1"
   }
 }
