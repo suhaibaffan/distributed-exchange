@@ -18,9 +18,10 @@ peer.request( 'orderbook_workload', { userId: v4(), create: true }, { timeout: 1
     console.log( data ); // here it should return the new user order book node details.
     userOrderbookNode = data;
     const operation = process.argv[2];
+    const value = process.argv[3]
 
     if ( operation === 'buy' ) {
-        peer.request( 'orderbook_workload', { buy: true, value: 500, userBook: data }, { timeout: 1000 }, ( err, data ) => {
+        peer.request( 'orderbook_workload', { buy: true, value, userBook: data }, { timeout: 1000 }, ( err, data ) => {
             if ( err ) {
                 //retry after some time;
                 console.log( err );
@@ -30,7 +31,7 @@ peer.request( 'orderbook_workload', { userId: v4(), create: true }, { timeout: 1
     }
     
     if ( operation === 'sell' ) {
-        peer.request( 'orderbook_workload', { sell: true, value: 500, userBook: data }, { timeout: 1000 }, ( err, data ) => {
+        peer.request( 'orderbook_workload', { sell: true, value, userBook: data }, { timeout: 1000 }, ( err, data ) => {
             if ( err ) {
                 //retry after some time;
                 console.log( err );

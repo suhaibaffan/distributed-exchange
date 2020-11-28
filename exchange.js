@@ -2,7 +2,7 @@ const { PeerRPCServer } = require( './grenache-nodejs-ws/index' );
 const Link = require( 'grenache-nodejs-link' );
 
 const exchangeOrderBook = [];
-const pendingOrders = [];
+// TODO when you have to matching orders do a transaction.
 
 const link = new Link({
     grape: 'http://127.0.0.1:30001'
@@ -17,6 +17,7 @@ setInterval( () => {
 }, 1000 );
 service.on( 'request', (rid, key, payload, handler) => {
     console.log( payload );
-    const { buy, sell } = payload;
-    handler.reply(null, 'hello')
+    const { order } = payload;
+    exchangeOrderBook.push( order );
+    handler.reply(null, 'Exchanged' );
 });
