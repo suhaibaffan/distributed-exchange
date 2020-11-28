@@ -1,0 +1,13 @@
+{
+  "name": "distributed-exchange",
+  "version": "1.0.0",
+  "description": "Simple distributed exchange",
+  "main": "index.js",
+  "repository": "https://github.com/suhaibaffan/distributed-exchange.git",
+  "author": "Suhaib Affan",
+  "license": "MIT",
+  "dependencies": {
+    "grenache-nodejs-link": "^0.7.12",
+    "uuidv4": "^6.2.5"
+  }
+}
